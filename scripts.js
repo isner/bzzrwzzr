@@ -3,8 +3,15 @@
 var board = document.getElementById('board');
 var teamPanel = document.getElementById('team-panel');
 
-  // Square positions to hide
-var noDisplay = [8,9,10,11,14,15,16,17,20,21,22,23,26,27,28,29];
+var len;
+
+var config = {
+
+  noDisplay: [8,9,10,11,14,15,16,17,20,21,22,23,26,27,28,29],
+
+  categories: ['architecture', 'art-and-stage', 'business-world', 'communities', 'design', 'film', 'food-and-drink', 'geography', 'history', 'humans', 'language', 'literature', 'music', 'nature', 'politics', 'science', 'sports-and-games', 'technology', 'traditions-and-beliefs', 'tv-and-radio', ]
+
+};
 
   // Add squares to the board
 for (var i = 0; i < 36; i++) {
@@ -16,7 +23,7 @@ for (var i = 0; i < 36; i++) {
     square.id = 'start';
   }
 
-  if (noDisplay.indexOf(i + 1) >= 0) {
+  if (config.noDisplay.indexOf(i + 1) >= 0) {
     square.classList.add('hidden');
   } else {
     square.setAttribute('ondragover', 'allowDrop(event)');
@@ -29,8 +36,8 @@ for (var i = 0; i < 36; i++) {
 
   // For each team
 var teams = ['blue', 'red', 'green', 'yellow'];
-var teamsLen = teams.length;
-for (var i = 0; i < teamsLen; i++) {
+len = teams.length;
+for (var i = 0; i < len; i++) {
 
     // Make team panel
   var team = document.createElement('div');
@@ -79,51 +86,34 @@ for (var i = 0; i < teamsLen; i++) {
 
   teamPanel.appendChild(team);
 
-    // Make player/team piece
-  var player = document.createElement('div');
-  player.classList.add('player');
-  player.classList.add(teams[i]);
-  player.setAttribute('draggable', true);
-  player.setAttribute('ondragstart', 'drag(event)');
-  document.getElementById('start').appendChild(player);
+    // Make player/team avatar
+  var avatar = document.createElement('div');
+  avatar.classList.add('avatar');
+  avatar.classList.add(teams[i]);
+  avatar.setAttribute('draggable', true);
+  avatar.setAttribute('ondragstart', 'drag(event)');
+  document.getElementById('start').appendChild(avatar);
 }
 
-var categories = [
-  'architecture',
-  'art-and-stage',
-  'business-world',
-  'communities',
-  'design',
-  'film',
-  'food-and-drink',
-  'geography',
-  'history',
-  'humans',
-  'language',
-  'literature',
-  'music',
-  'nature',
-  'politics',
-  'science',
-  'sports-and-games',
-  'technology',
-  'traditions-and-beliefs',
-  'tv-and-radio',
-];
+  // Add draw button
+var drawButton = document.createElement('button');
+drawButton.textContent = 'Draw';
+drawButton.addEventListener('click', drawQuestions);
+teamPanel.appendChild(drawButton);
 
-  // Randomly distribute question pieces
-var questions = document.querySelectorAll('div.question-panel .piece');
-var qLen = questions.length;
-for (var i = 0; i < qLen; i++) {
-  var question = Math.floor(Math.random() * (categories.length - 1 + 1) + 1) - 1;
-  questions[i].classList.add(categories[question]);
-  categories.splice(question, 1);
+drawQuestions();
+
+  // Bind listener to toggle question borders
+var questions = document.querySelectorAll('.question-panel .square');
+len = questions.length;
+for (var i = 0; i < len; i++) {
+  questions[i].addEventListener('click', toggleBorder);
 }
 
   // Bind listener to toggle bonus pieces
 var bonuses = document.querySelectorAll('.bonus');
-var bLen = bonuses.length;
-for (var i = 0; i < bLen; i++) {
+len = bonuses.length;
+for (var i = 0; i < len; i++) {
   bonuses[i].addEventListener('click', toggleBonus);
 }
 
@@ -132,6 +122,35 @@ var teamnames = document.querySelectorAll('.teamname');
 var teamLen = teamnames.length;
 for (var i = 0; i < teamLen; i++) {
   teamnames[i].addEventListener('click', editTeamname);
+}
+
+function drawQuestions() {
+
+    // Grab all the question pieces
+  var questions = document.querySelectorAll('.question-panel .piece');
+  var categories = [].concat(config.categories);
+  len = questions.length;
+  for (var i = 0; i < len; i++) {
+    questions[i].className = 'piece';
+    var question = Math.floor(Math.random() * (categories.length - 1 + 1) + 1) - 1;
+    questions[i].classList.add(categories[question]);
+    categories.splice(question, 1);
+    questions[i].parentNode.className = 'square';
+  }
+}
+
+function toggleBorder(event) {
+  var container = event.target.parentNode;
+  var isGreen = container.classList.contains('border-green');
+  var isRed = container.classList.contains('border-red');
+  if (isGreen) {
+    container.classList.remove('border-green');
+    container.classList.add('border-red');
+  } else if (isRed) {
+    container.classList.remove('border-red');
+  } else {
+    container.classList.add('border-green');
+  }
 }
 
 function toggleBonus(event) {

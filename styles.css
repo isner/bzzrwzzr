@@ -105,7 +105,7 @@ h1, h2, h3, h4, h5 {
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.25);
 }
 
-.player {
+.avatar {
   float: left;
   width: 23px;
   height: 23px;
@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5 {
   border-radius: 5px;
 }
 
-.player:hover {
+.avatar:hover {
   cursor: pointer;
 }
 
@@ -127,15 +127,19 @@ h1, h2, h3, h4, h5 {
   border-style: solid;
 }
 
+#team-panel button {
+  margin-left: 10px;
+}
+
 .team.blue    { border-color: #5252FF; }
 .team.red     { border-color: #F70000; }
 .team.yellow  { border-color: #E7E709; }
 .team.green   { border-color: #36D320; }
 
-.bonus.blue, .player.blue    { background-color: #5252FF; }
-.bonus.red, .player.red     { background-color: #F70000; }
-.bonus.yellow, .player.yellow  { background-color: #E7E709; }
-.bonus.green, .player.green   { background-color: #36D320; }
+.bonus.blue, .avatar.blue    { background-color: #5252FF; }
+.bonus.red, .avatar.red     { background-color: #F70000; }
+.bonus.yellow, .avatar.yellow  { background-color: #E7E709; }
+.bonus.green, .avatar.green   { background-color: #36D320; }
 
 .question-panel .square {
   display: inline-block;
@@ -143,14 +147,25 @@ h1, h2, h3, h4, h5 {
   height: 40px;
   margin: 9px;
   background-color: #FFF;
-  border: 2px solid #000;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #000;
   border-radius: 8px;
+}
+
+.question-panel .square.border-green {
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 255, 0, 1);
+  box-shadow: 0 0 5px 5px rgba(0, 255, 0, 1);
+}
+.question-panel .square.border-red   {
+  -webkit-box-shadow: 0 0 5px 5px rgba(255, 0, 0, 1);
+  box-shadow: 0 0 5px 5px rgba(255, 0, 0, 1);
 }
 
 .piece {
   width: 40px;
   height: 40px;
-  border-radius: 3px;
+  border-radius: 4px;
   background-image: url('tiles.png');
 }
 
