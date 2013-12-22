@@ -71,8 +71,15 @@ for (var i = 0; i < teamsLen; i++) {
     square.innerHTML = iii < 2 ? 'b' : 'z';
   }
 
+    // Make player/team name
+  var teamname = document.createElement('div');
+  teamname.classList.add('teamname');
+  teamname.textContent = 'Team ' + (i + 1);
+  team.appendChild(teamname);
+
   teamPanel.appendChild(team);
 
+    // Make player/team piece
   var player = document.createElement('div');
   player.classList.add('player');
   player.classList.add(teams[i]);
@@ -113,13 +120,51 @@ for (var i = 0; i < qLen; i++) {
   categories.splice(question, 1);
 }
 
-  // Bind event to toggle bonus pieces
+  // Bind listener to toggle bonus pieces
 var bonuses = document.querySelectorAll('.bonus');
 var bLen = bonuses.length;
 for (var i = 0; i < bLen; i++) {
-  bonuses[i].addEventListener('click', function (event) {
-    event.target.classList.toggle('off');
-  });
+  bonuses[i].addEventListener('click', toggleBonus);
+}
+
+  // Bind listener to edit teamnames
+var teamnames = document.querySelectorAll('.teamname');
+var teamLen = teamnames.length;
+for (var i = 0; i < teamLen; i++) {
+  teamnames[i].addEventListener('click', editTeamname);
+}
+
+function toggleBonus(event) {
+  event.target.classList.toggle('off');
+}
+
+function editTeamname(event) {
+  var frame = event.target;
+  var oldName = frame.textContent;
+  frame.textContent = '';
+  var input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  input.value = oldName;
+  frame.appendChild(input);
+  input.select();
+  input.addEventListener('blur', submitName);
+  input.addEventListener('keydown', inputKeyPressed);
+}
+
+function submitName(event) {
+  console.log('submitName()');
+  var input = event.target;
+  var frame = input.parentNode;
+  frame.removeChild(input);
+  frame.textContent = input.value;
+}
+
+function inputKeyPressed(event) {
+  var which = event.which;
+  if (which === 13) {
+    event.target.removeEventListener('blur', submitName);
+    submitName(event);
+  }
 }
 
 function drag(event) {

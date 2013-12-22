@@ -1,12 +1,25 @@
 html {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #FFF;
   font-family: Helvetica; sans-serif;
+
+  background: #feffff;
+  background: -moz-linear-gradient(-45deg,  #feffff 0%, #ddf1f9 35%, #a0d8ef 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#feffff), color-stop(35%,#ddf1f9), color-stop(100%,#a0d8ef));
+  background: -webkit-linear-gradient(-45deg,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+  background: -o-linear-gradient(-45deg,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+  background: -ms-linear-gradient(-45deg,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+  background: linear-gradient(135deg,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#a0d8ef',GradientType=1 );
+
+
+
 }
 
 body {
-  width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
   cursor: default;
@@ -26,6 +39,10 @@ h1, h2, h3, h4, h5 {
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
+}
+
+#content-wrapper {
+  margin: 10px;
 }
 
 #board {
@@ -72,10 +89,6 @@ h1, h2, h3, h4, h5 {
   color: #fff;
   font-size: 40px;
   text-shadow: 0 0 10px #000;
-}
-
-#board #start {
-  /*background-color: #885A5A;*/
 }
 
 #board .square {
@@ -145,6 +158,10 @@ h1, h2, h3, h4, h5 {
   cursor: pointer;
 }
 
+.bonus-panel, .teamname {
+  display: inline-block;
+}
+
 .bonus {
   display: inline-block;
   width: 30px;
@@ -162,12 +179,23 @@ h1, h2, h3, h4, h5 {
   cursor: pointer;
 }
 
+.teamname {
+  padding-left: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #FFF;
+}
+
+.teamname input {
+  width: 90px;
+}
+
 .hidden {
   visibility: hidden;
 }
 
 .off {
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 .piece.architecture { background-position: -3px -3px; }
@@ -190,3 +218,10 @@ h1, h2, h3, h4, h5 {
 .piece.technology { background-position: -92px -138px; }
 .piece.traditions-and-beliefs { background-position: -137px -138px; }
 .piece.tv-and-radio { background-position: -181px -138px; }
+
+p.clear {
+  clear: both;
+  height: 0px;
+  margin: 0;
+  padding: 0;
+}
