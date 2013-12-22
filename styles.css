@@ -1,0 +1,192 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica; sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+#board {
+  position: relative;
+  float: left;
+  width: 500px;
+  height: 500px;
+  margin: 0;
+  padding: 1px;
+  border: 10px solid #000;
+}
+
+.red-burst {
+  /* Old browsers */
+  background: #b41d3b;
+  /* FF3.6+ */
+  background: -moz-radial-gradient(center, ellipse cover,  #b41d3b 28%, #77142b 100%);
+  /* Chrome,Safari4+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(28%,#b41d3b), color-stop(100%,#77142b));
+  /* Chrome10+,Safari5.1+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  #b41d3b 28%,#77142b 100%);
+  /* Opera 12+ */
+  background: -o-radial-gradient(center, ellipse cover,  #b41d3b 28%,#77142b 100%);
+  /* IE10+ */
+  background: -ms-radial-gradient(center, ellipse cover,  #b41d3b 28%,#77142b 100%);
+  /* W3C */
+  background: radial-gradient(ellipse at center,  #b41d3b 28%,#77142b 100%);
+  /* IE6-9 fallback on horizontal gradient */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b41d3b', endColorstr='#77142b',GradientType=1 );
+}
+
+#logo-wrapper {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: calc(50% - 150px);
+  top: calc(50% - 25px);
+}
+
+#logo {
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  text-shadow: 0 0 10px #000;
+}
+
+#board #start {
+  /*background-color: #885A5A;*/
+}
+
+#board .square {
+  float: left;
+  width: 55px;
+  height: 55px;
+  margin: 9px;
+  padding: 3px;
+  background-color: #000;
+  border: 2px solid #fff;
+  border-radius: 10px;
+
+  -webkit-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.25);
+}
+
+.player {
+  float: left;
+  width: 23px;
+  height: 23px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.player:hover {
+  cursor: pointer;
+}
+
+#team-panel {
+  float: left;
+}
+
+#team-panel .team {
+  margin: 10px;
+  border-width: 5px; 
+  border-style: solid;
+}
+
+.team.blue    { border-color: #5252FF; }
+.team.red     { border-color: #F70000; }
+.team.yellow  { border-color: #E7E709; }
+.team.green   { border-color: #36D320; }
+
+.bonus.blue, .player.blue    { background-color: #5252FF; }
+.bonus.red, .player.red     { background-color: #F70000; }
+.bonus.yellow, .player.yellow  { background-color: #E7E709; }
+.bonus.green, .player.green   { background-color: #36D320; }
+
+.question-panel .square {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 9px;
+  background-color: #FFF;
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+
+.piece {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  background-image: url('tiles.png');
+}
+
+.piece:hover {
+  cursor: pointer;
+}
+
+.bonus {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0 0 8px 10px;
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 26px;
+  font-weight: 800;
+  text-align: center;
+  color: #FFF;
+}
+
+.bonus:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.off {
+  opacity: 0.1;
+}
+
+.piece.architecture { background-position: -3px -3px; }
+.piece.art-and-stage { background-position: -48px -3px; }
+.piece.business-world { background-position: -92px -3px; }
+.piece.communities { background-position: -137px -3px; }
+.piece.design { background-position: -181px -3px; }
+.piece.film { background-position: -3px -48px; }
+.piece.food-and-drink { background-position: -48px -48px; }
+.piece.geography { background-position: -92px -48px; }
+.piece.history { background-position: -137px -48px; }
+.piece.humans { background-position: -181px -48px; }
+.piece.language { background-position: -3px -93px; }
+.piece.literature { background-position: -48px -93px; }
+.piece.music { background-position: -92px -93px; }
+.piece.nature { background-position: -137px -93px; }
+.piece.politics { background-position: -181px -93px; }
+.piece.science { background-position: -3px -138px; }
+.piece.sports-and-games { background-position: -48px -138px; }
+.piece.technology { background-position: -92px -138px; }
+.piece.traditions-and-beliefs { background-position: -137px -138px; }
+.piece.tv-and-radio { background-position: -181px -138px; }
