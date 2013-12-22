@@ -1,8 +1,8 @@
 bzzrwzzr
 ========
 
-Digital board for a popular game
+Digital board for a popular trivia game
 
-# Directions
+## Directions
 
 Open `index.html` in your browser.
