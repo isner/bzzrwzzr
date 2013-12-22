@@ -9,7 +9,9 @@ var config = {
 
   noDisplay: [8,9,10,11,14,15,16,17,20,21,22,23,26,27,28,29],
 
-  categories: ['architecture', 'art-and-stage', 'business-world', 'communities', 'design', 'film', 'food-and-drink', 'geography', 'history', 'humans', 'language', 'literature', 'music', 'nature', 'politics', 'science', 'sports-and-games', 'technology', 'traditions-and-beliefs', 'tv-and-radio', ]
+  categories: ['architecture', 'art-and-stage', 'business-world', 'communities', 'design', 'film', 'food-and-drink', 'geography', 'history', 'humans', 'language', 'literature', 'music', 'nature', 'politics', 'science', 'sports-and-games', 'technology', 'traditions-and-beliefs', 'tv-and-radio'],
+
+  nums: ['one', 'two', 'three', 'four']
 
 };
 
@@ -56,13 +58,31 @@ for (var i = 0; i < len; i++) {
     square.classList.add('square');
     square.setAttribute('ondragover', 'allowDrop(event)');
     square.setAttribute('ondrop', 'dropQuestion(event)');
+
     var piece = document.createElement('div');
     piece.classList.add('piece');
     piece.setAttribute('draggable', true);
     piece.setAttribute('ondragstart', 'drag(event)');
-    square.appendChild(piece);
+
     questionPanel.appendChild(square);
+    square.appendChild(piece);
   }
+
+    // Make point value indicators
+  var pointWrap = document.createElement('div');
+  pointWrap.className = 'point-values';
+  for (var iv = 0; iv < 4; iv++) {
+    var points = document.createElement('div');
+    points.classList.add('points');
+    points.classList.add(config.nums[iv]);
+    for (var v = 0; v < iv + 1; v++) {
+      var point = document.createElement('div');
+      point.className = 'point';
+      points.appendChild(point);
+    }
+    pointWrap.appendChild(points);
+  }
+  team.appendChild(pointWrap);
 
     // Make bonus panel
   var bonusPanel = document.createElement('div');

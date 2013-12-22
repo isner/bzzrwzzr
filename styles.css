@@ -124,7 +124,8 @@ h1, h2, h3, h4, h5 {
 }
 
 #team-panel .team {
-  margin: 10px;
+  position: relative;
+  margin: 0 10px 10px 10px;
   border-width: 5px; 
   border-style: solid;
 }
@@ -137,6 +138,28 @@ h1, h2, h3, h4, h5 {
   border: 3px solid #b41d3b;
 }
 
+#team-panel button:hover {
+  cursor: pointer;
+}
+
+.points {
+  position: absolute;
+}
+
+.one   { left: 29px; top: 57px; }
+.two   { left: 87px; top: 57px; }
+.three { left: 145px; top: 57px; }
+.four  { left: 202px; top: 57px; }
+
+.point-values .point {
+  float: left;
+  width: 5px;
+  height: 5px;
+  margin-right: 3px;
+  background-color: #000;
+  border-radius: 5px;
+}
+
 .team.blue    { border-color: #5252FF; }
 .team.red     { border-color: #F70000; }
 .team.yellow  { border-color: #E7E709; }
@@ -146,6 +169,10 @@ h1, h2, h3, h4, h5 {
 .bonus.red, .avatar.red     { background-color: #F70000; }
 .bonus.yellow, .avatar.yellow  { background-color: #E7E709; }
 .bonus.green, .avatar.green   { background-color: #36D320; }
+
+.question-panel {
+  margin-bottom: 5px;
+}
 
 .question-panel .square {
   display: inline-block;
