@@ -152,7 +152,6 @@ function editTeamname(event) {
 }
 
 function submitName(event) {
-  console.log('submitName()');
   var input = event.target;
   var frame = input.parentNode;
   frame.removeChild(input);
