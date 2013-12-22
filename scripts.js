@@ -25,6 +25,12 @@ for (var i = 0; i < 36; i++) {
     square.id = 'start';
   }
 
+  if (i >= 31 && i <= 36) {
+    var dot = document.createElement('div');
+    dot.className = 'dot';
+    square.appendChild(dot);
+  }
+
   if (config.noDisplay.indexOf(i + 1) >= 0) {
     square.classList.add('hidden');
   } else {

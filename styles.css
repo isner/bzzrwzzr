@@ -92,6 +92,7 @@ h1, h2, h3, h4, h5 {
 }
 
 #board .square {
+  position: relative;
   float: left;
   width: 55px;
   height: 55px;
@@ -103,6 +104,16 @@ h1, h2, h3, h4, h5 {
 
   -webkit-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dot {
+  position: absolute;
+  left: 27px;
+  top: 27px;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background-color: #FFF;
 }
 
 .avatar {
