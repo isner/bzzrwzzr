@@ -97,11 +97,11 @@ for (var i = 0; i < len; i++) {
 
   // Add draw button
 var drawButton = document.createElement('button');
-drawButton.textContent = 'Draw';
-drawButton.addEventListener('click', drawQuestions);
+drawButton.textContent = 'New Round';
+drawButton.addEventListener('click', newRound);
 teamPanel.appendChild(drawButton);
 
-drawQuestions();
+newRound();
 
   // Bind listener to toggle question borders
 var questions = document.querySelectorAll('.question-panel .square');
@@ -124,9 +124,7 @@ for (var i = 0; i < teamLen; i++) {
   teamnames[i].addEventListener('click', editTeamname);
 }
 
-function drawQuestions() {
-
-    // Grab all the question pieces
+function newRound() {
   var questions = document.querySelectorAll('.question-panel .piece');
   var categories = [].concat(config.categories);
   len = questions.length;
@@ -136,6 +134,10 @@ function drawQuestions() {
     questions[i].classList.add(categories[question]);
     categories.splice(question, 1);
     questions[i].parentNode.className = 'square';
+  }
+  var bonuses = document.querySelectorAll('.bonus');
+  for (var i = 0; i < bonuses.length; i++) {
+    bonuses[i].classList.remove('off');
   }
 }
 
