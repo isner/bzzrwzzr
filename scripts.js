@@ -171,13 +171,17 @@ function toggleBorder(event) {
   var container = event.target.parentNode;
   var isGreen = container.classList.contains('border-green');
   var isRed = container.classList.contains('border-red');
-  if (isGreen) {
+  var isYellow = container.classList.contains('border-yellow');
+  if (isYellow) {
+    container.classList.remove('border-yellow');
+    container.classList.add('border-green');
+  } else if (isGreen) {
     container.classList.remove('border-green');
     container.classList.add('border-red');
   } else if (isRed) {
     container.classList.remove('border-red');
   } else {
-    container.classList.add('border-green');
+    container.classList.add('border-yellow');
   }
 }
 
