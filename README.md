@@ -1,7 +1,7 @@
 bzzrwzzr
 ========
 
-![Gameboard screenshot](screenshot.png)
+![Gameboard screenshot](http://github.com/isner/master/screenshot.png)
 
 Digital board for a popular trivia game
 
