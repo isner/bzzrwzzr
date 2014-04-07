@@ -1,6 +1,8 @@
 bzzrwzzr
 ========
 
+![Gameboard screenshot](screenshot.png)
+
 Digital board for a popular trivia game
 
 ## Directions
