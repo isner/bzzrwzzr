@@ -1,4 +1,3 @@
-'use strict';
 
 var board = document.getElementById('board');
 var teamPanel = document.getElementById('team-panel');
